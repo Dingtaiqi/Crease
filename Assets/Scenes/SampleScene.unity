@@ -159,7 +159,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.22340265, g: 0.3584906, b: 0.113296546, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -195,7 +195,7 @@ Camera:
   m_TargetEye: 0
   m_HDR: 1
   m_AllowMSAA: 0
-  m_AllowDynamicResolution: 0
+  m_AllowDynamicResolution: 1
   m_ForceIntoRT: 0
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
@@ -262,7 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8f2be6d9b88cd4199ac3b4c3798ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 0}
+  PrefabTap: {fileID: 0}
+  PrefabFlick: {fileID: 0}
 --- !u!212 &537556715
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -432,7 +433,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d8f2be6d9b88cd4199ac3b4c3798ef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 1015876852769975910, guid: ea7540793dd24324792863998d147c2b, type: 3}
+  PrefabTap: {fileID: 1015876852769975910, guid: ea7540793dd24324792863998d147c2b, type: 3}
+  PrefabFlick: {fileID: 3286524519495752092, guid: 8c6a47a9e28823e4b9f5e29f0045dcd2, type: 3}
 --- !u!1001 &1511012815693992456
 PrefabInstance:
   m_ObjectHideFlags: 0

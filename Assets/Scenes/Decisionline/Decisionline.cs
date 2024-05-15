@@ -6,7 +6,8 @@ using UnityEngine;
 public class Decisionline : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject prefab; 
+    public GameObject PrefabTap;
+    public GameObject PrefabFlick;
     float timer;
     //随机数，仅拿来测试，后面JSON再说
     void Start()
@@ -20,8 +21,10 @@ public class Decisionline : MonoBehaviour
         timer += Time.deltaTime;
         if (timer >= 1)
         {
-            int a = Random.Range(-8, 11);
-            Instantiate(prefab, new Vector3(a, 5, 0), Quaternion.identity);
+            int a = Random.Range(-8, 9);
+            Instantiate(PrefabTap, new Vector3(a, 5, 0), Quaternion.identity);
+            a = Random.Range(-8, 9);
+            Instantiate(PrefabFlick, new Vector3(a, 5, 0), Quaternion.identity);
             timer = 0;
         }
     }

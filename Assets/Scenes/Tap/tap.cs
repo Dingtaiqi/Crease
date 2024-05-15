@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Tap : MonoBehaviour
@@ -21,16 +22,20 @@ public class Tap : MonoBehaviour
         click.SetActive(false);
         mt = 0;
         speed = UnityEngine.Random.Range(3, 7);
+        rb.velocity = new Vector3(0, -speed, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (click.activeSelf == true)
+        {
+            rb.velocity = new Vector3(0, 0, 0);
+        }
     }
     private void FixedUpdate()
     {
-        rb.velocity = new Vector3(0, -speed, 0);
+        
         if ((speed == 0) & (mt == 0))
         {
             time1 = Time.time;
@@ -43,11 +48,12 @@ public class Tap : MonoBehaviour
             mt = 2;
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private async void OnTriggerEnter2D(Collider2D collision)
     {
-        speed = 0;
+        
         tap1.SetActive(false);
         click.SetActive(true);
+        await Task.Delay(100);
         Destroy(this.gameObject);
     }
 }
