@@ -16,6 +16,7 @@ public class Flick : MonoBehaviour
     public float timer;
     void Start()
     {
+        Input.multiTouchEnabled = true;
         rb = GetComponent<Rigidbody2D>();
         GameObject Flick1 = this.gameObject;
         flick.SetActive(true);
@@ -26,8 +27,24 @@ public class Flick : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    async void Update()
     {
+        GameObject dy = GameObject.Find("Square");
+        Vector3 dyPos =dy.transform.position;
+        Vector3 myPos = flick.transform.position;
+        Touch touch = Input.touches[0];
+        switch (touch.phase)
+        {
+            case TouchPhase.Began:
+                if (((myPos.y-dyPos.y)<=34)&((myPos.y - dyPos.y) <= -12)&((touch.position.y-myPos.y)<10)& ((touch.position.y - myPos.y) <-10)& ((touch.position.x - myPos.x)<=1)& ((touch.position.x - myPos.x) <= -1))
+                {
+                    flick.SetActive(false);
+                    flick1.SetActive(true);
+                   // await Task.Delay(100);
+                   // Destroy(this.gameObject);
+                }
+                break;
+        }
         if (flick1.activeSelf == true)
         {
             rb.velocity = new Vector3(0, 0, 0);
@@ -50,11 +67,13 @@ public class Flick : MonoBehaviour
     }
     private async void OnTriggerEnter2D(Collider2D collision)
     {
-
-        flick.SetActive(false);
-        flick1.SetActive(true);
-        await Task.Delay(100);
-        Destroy(this.gameObject);
+        if (collision.gameObject.name == "Square")
+        {
+            flick.SetActive(false);
+            flick1.SetActive(true);
+            //await Task.Delay(100);
+            Destroy(this.gameObject);
+        }
     }
 }
 
