@@ -12,13 +12,15 @@ public class Flick : MonoBehaviour
     public GameObject flick1;
     public Rigidbody2D rb;
     public int speed, mt;
+    public bool sb, sd = false;
     public float time1, time2, time3, time4;
     public float timer;
     void Start()
     {
+        sb = false; sd = false;
         Input.multiTouchEnabled = true;
         rb = GetComponent<Rigidbody2D>();
-        GameObject Flick1 = this.gameObject;
+        GameObject Drag = this.gameObject;
         flick.SetActive(true);
         flick1.SetActive(false);
         mt = 0;
@@ -27,32 +29,13 @@ public class Flick : MonoBehaviour
     }
 
     // Update is called once per frame
-    async void Update()
+    void Update()
     {
-        GameObject dy = GameObject.Find("Square");
-        Vector3 dyPos =dy.transform.position;
-        Vector3 myPos = flick.transform.position;
-        Touch touch = Input.touches[0];
-        switch (touch.phase)
-        {
-            case TouchPhase.Began:
-                if (((myPos.y-dyPos.y)<=34)&((myPos.y - dyPos.y) <= -12)&((touch.position.y-myPos.y)<10)& ((touch.position.y - myPos.y) <-10)& ((touch.position.x - myPos.x)<=1)& ((touch.position.x - myPos.x) <= -1))
-                {
-                    flick.SetActive(false);
-                    flick1.SetActive(true);
-                   // await Task.Delay(100);
-                   // Destroy(this.gameObject);
-                }
-                break;
-        }
-        if (flick1.activeSelf == true)
-        {
-            rb.velocity = new Vector3(0, 0, 0);
-        }
+
     }
     private void FixedUpdate()
     {
-        
+
         if ((speed == 0) & (mt == 0))
         {
             time1 = Time.time;
@@ -65,15 +48,48 @@ public class Flick : MonoBehaviour
             mt = 2;
         }
     }
-    private async void OnTriggerEnter2D(Collider2D collision)
+    private async void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "Square")
+        if ((collision.gameObject.name == "Square"))
+        {
+            sd = true;
+        }
+        if ((collision.gameObject.name == "Square") & (sb == true) & (sd == true))
         {
             flick.SetActive(false);
             flick1.SetActive(true);
-            //await Task.Delay(100);
+            await Task.Delay(100);
             Destroy(this.gameObject);
         }
+        else if (collision.gameObject.name == "SB")
+        {
+
+            Destroy(this.gameObject);
+        }
+
     }
+    void OnMouseDown()
+    {
+        sb = true;
+
+
+        if (sd == false) { Debug.Log("114514"); Destroy(this.gameObject); } else { Debug.Log("1919810"); }
+        GameObject dy = GameObject.Find("Square");
+        Vector3 dyPos = dy.transform.position;
+        Vector3 myPos = flick.transform.position;
+        //if (Input.touchCount > 0)
+        //if (((myPos.y - dyPos.y) <= 0.34) & ((myPos.y - dyPos.y) <= -1.2)) //& ((touch.position.y - myPos.y) < 10) & ((touch.position.y - myPos.y) < -10) & ((touch.position.x - myPos.x) <= 1) & ((touch.position.x - myPos.x) <= -1))
+
+        //{
+        // flick.SetActive(false);
+        //  flick1.SetActive(true);
+        // await Task.Delay(100);
+        // Destroy(this.gameObject);
+        // }
+
+        //break;
+    }
+    // case TouchPhase.Ended:
+
 }
 

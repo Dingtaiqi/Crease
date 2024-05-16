@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2083160694618134898}
   - component: {fileID: 8662963427915724984}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: flick1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5991782412285173402}
   - component: {fileID: 6448909457562413354}
   - component: {fileID: 3878841083542185284}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Flick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.3, y: -0.5}
+  m_Offset: {x: -0.3, y: -0.7}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -212,7 +212,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.1}
+  m_Size: {x: 3, y: 1}
   m_EdgeRadius: 0
 --- !u!1 &4386970927331359519
 GameObject:
@@ -224,7 +224,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2703438774477658572}
   - component: {fileID: 4694147337980442842}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: flick
   m_TagString: Untagged
   m_Icon: {fileID: 0}

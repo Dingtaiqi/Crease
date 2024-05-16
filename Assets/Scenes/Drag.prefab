@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7439788358168417513}
   - component: {fileID: 1419450191276330664}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: drag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2303734891664250996}
   - component: {fileID: 1984357796177662768}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: drag1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 4060169716254906993}
   - component: {fileID: 5419304408444778986}
   - component: {fileID: 8060839760939428629}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Drag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.2}
+  m_Offset: {x: 0.09, y: 0.2}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -296,5 +296,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.1}
+  m_Size: {x: 2, y: 1.5}
   m_EdgeRadius: 0
